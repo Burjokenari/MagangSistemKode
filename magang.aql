@@ -1,0 +1,28 @@
+//Update alamat mahasiswa dengan NIM ‘123456’ menjadi ‘Jl. Raya No.5’
+
+UPDATE mahasiswa
+SET alamat = 'Jl. Raya No.5'
+WHERE nim = '123456';
+
+//Tampilkan NIM, nama, dan jurusan dari mahasiswa yang memiliki jurusan ‘Teknik Informatika’, 
+    serta tampilkan juga nama dosen pembimbingnya
+
+SELECT m.nim, m.nama, m.jurusan, k.dosen_pengajar
+FROM mahasiswa m
+JOIN kuliah k ON m.nim = k.nim
+WHERE m.jurusan = 'Teknik Informatika';
+
+//Tampilkan 5 nama mahasiswa dengan umur tertua
+
+SELECT nama
+FROM mahasiswa
+ORDER BY umur DESC
+LIMIT 5;
+
+//Tampilkan nama mahasiwa, mata kuliah yang diambil, dan nilai yang diperoleh untuk setiap mata kuliah. 
+    Hanya tampilkan data mahasiswa yang memiliki nilai lebih bagus dari 70
+
+SELECT m.nama, k.mata_kuliah, k.nilai
+FROM mahasiswa m
+JOIN kuliah k ON m.nim = k.nim
+WHERE k.nilai > 70;
